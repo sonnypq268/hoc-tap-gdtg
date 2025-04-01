@@ -3,56 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Học Tập</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        .item { display: inline-block; margin: 20px; position: relative; cursor: pointer; }
-        .tooltip {
-            visibility: hidden;
-            background-color: black; color: white;
-            text-align: center; border-radius: 5px;
-            padding: 5px; position: absolute;
-            bottom: 100%; left: 50%;
-            transform: translateX(-50%);
-            opacity: 0; transition: opacity 0.3s;
-        }
-        .item:hover .tooltip { visibility: visible; opacity: 1; }
-        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%;
-                 background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; }
-        .modal-content { background-color: white; padding: 20px; border-radius: 10px; }
-        .close { float: right; cursor: pointer; font-size: 20px; }
-    </style>
+    <title>Trang Chủ</title>
+    <!-- Link đến thư viện Mermaid.js -->
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({startOnLoad:true});
+    </script>
 </head>
 <body>
+    <h1>Trang Chủ</h1>
 
-    <h1>Học Tập - Thấu Suốt Tri Thức Nhân Sinh Quan</h1>
-    
-    <div class="item" onclick="openModal('Đồ hình tổng quát')">
-        📘 Đồ Hình tổng quát
-        <div class="tooltip">Đồ hình tri thức Nhân sinh quan</div>
+    <!-- Sơ đồ -->
+    <div class="mermaid">
+      graph TD;
+          A[THẤU HIỂU NỘI TÂM] --> B[QUY LUẬT (NHÂN - DUYÊN - QUẢ)]
+          A --> C[NGUYÊN LÝ]
+          B --> D[NHÂN]
+          B --> E[DUYÊN]
+          B --> F[QUẢ]
+          C --> G[NGUYÊN LÝ ÁNH SÁNG]
+          C --> H[NGUYÊN LÝ VÒNG TRI THỨC]
+          C --> H[NGUYÊN LÝ KÍCH HOẠT NÃO]
+          C --> H[NGUYÊN LÝ HỎI - NGHI - NGỘ - HIỂU - CHUYỂN HÓA]
     </div>
 
-    <div class="item" onclick="openModal('Các Khái niệm nguồn cơ bản')">
-        📗 Các Khái niệm nguồn cơ bản
-        <div class="tooltip">Thông tin hóa một số Khái niệm nguồn cơ bản</div>
+    <!-- Thêm các liên kết nội dung chi tiết -->
+    <div>
+        <p>Click vào các mục để tìm hiểu chi tiết!</p>
     </div>
-
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p id="modal-text"></p>
-        </div>
-    </div>
-
-    <script>
-        function openModal(content) {
-            document.getElementById('modal-text').innerText = content;
-            document.getElementById('modal').style.display = 'flex';
-        }
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
-    </script>
-
 </body>
 </html>
